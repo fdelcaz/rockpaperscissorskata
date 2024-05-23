@@ -19,7 +19,7 @@ public class ClassTest {
   }
 
   @Test
-  public void player_two_with_rock_should_beat_scissors(){
+  public void player_two_with_rock_should_beat_scissors() {
     GameStatus expectedGameStatus = GameStatus.PLAYER_TWO_WON;
 
     Move playerOneMovement = Move.SCISSORS;
@@ -46,7 +46,6 @@ public class ClassTest {
 
   @Test
   public void player_two_with_paper_should_beat_rock() {
-    GameStatus expectedGameStatus = GameStatus.PLAYER_TWO_WON;
 
     Move playerOneMovement = Move.ROCK;
     Move playerTwoMovement = Move.PAPER;
@@ -54,12 +53,12 @@ public class ClassTest {
     RockPaperScissors rockPaperScissors = new RockPaperScissors();
     GameStatus gameStatus = rockPaperScissors.move(playerOneMovement, playerTwoMovement);
 
+    GameStatus expectedGameStatus = GameStatus.PLAYER_TWO_WON;
     assertEquals(gameStatus, expectedGameStatus);
   }
 
   @Test
   public void player_one_with_scissors_should_beat_paper() {
-    GameStatus expectedGameStatus = GameStatus.PLAYER_ONE_WON;
 
     Move playerOneMovement = Move.SCISSORS;
     Move playerTwoMovement = Move.PAPER;
@@ -67,12 +66,12 @@ public class ClassTest {
     RockPaperScissors rockPaperScissors = new RockPaperScissors();
     GameStatus gameStatus = rockPaperScissors.move(playerOneMovement, playerTwoMovement);
 
+    GameStatus expectedGameStatus = GameStatus.PLAYER_ONE_WON;
     assertEquals(gameStatus, expectedGameStatus);
   }
 
   @Test
   public void player_two_with_scissors_should_beat_paper() {
-    GameStatus expectedGameStatus = GameStatus.PLAYER_TWO_WON;
 
     Move playerOneMovement = Move.PAPER;
     Move playerTwoMovement = Move.SCISSORS;
@@ -80,7 +79,19 @@ public class ClassTest {
     RockPaperScissors rockPaperScissors = new RockPaperScissors();
     GameStatus gameStatus = rockPaperScissors.move(playerOneMovement, playerTwoMovement);
 
+    GameStatus expectedGameStatus = GameStatus.PLAYER_TWO_WON;
     assertEquals(gameStatus, expectedGameStatus);
   }
 
+  @Test
+  public void rock_against_rock_should_draw() {
+    Move playerOneMovement = Move.ROCK;
+    Move playerTwoMovement = Move.ROCK;
+
+    RockPaperScissors rockPaperScissors = new RockPaperScissors();
+    GameStatus gameStatus = rockPaperScissors.move(playerOneMovement, playerTwoMovement);
+
+    GameStatus expectedGameStatus = GameStatus.DRAW;
+    assertEquals(gameStatus, expectedGameStatus);
+  }
 }
