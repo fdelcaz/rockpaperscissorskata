@@ -1,5 +1,5 @@
-public class Move {
-
-  public Move(Movement movement) {
-  }
+public enum Move {
+  ROCK,
+  PAPER,
+  SCISSORS
 }
